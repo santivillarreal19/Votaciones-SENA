@@ -1,0 +1,353 @@
+/* ============================================================
+   Sistema de diseño del panel - Votaciones SENA
+   Hoja compartida por las vistas administrativas y de resultados
+   ============================================================ */
+
+:root {
+    --sena-green: #39A900;
+    --sena-dark-green: #2d8000;
+    --sena-light-green: #4bc20a;
+    --sena-orange: #FF6600;
+    --sena-blue: #00324a;
+    --sena-white: #ffffff;
+    --sena-bg: #f4f6f9;
+    --sena-gray: #6c757d;
+    --sena-dark-gray: #333333;
+    --sena-red: #c0392b;
+    --shadow-light: rgba(57, 169, 0, 0.12);
+    --shadow-medium: rgba(57, 169, 0, 0.22);
+    --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body.panel-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--sena-bg) 0%, #eaf5e8 100%);
+    color: var(--sena-dark-gray);
+    animation: pageFadeIn 0.5s ease-out;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ====== HEADER ====== */
+.panel-header {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    color: white;
+    padding: 1.1rem 2rem;
+    border-radius: 0 0 22px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    box-shadow: 0 6px 25px var(--shadow-medium);
+    animation: slideDown 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.panel-header .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.panel-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.panel-header p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.92;
+}
+
+.panel-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.2rem 0;
+}
+
+/* ====== BOTONES ====== */
+.btn {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+.btn:active { transform: translateY(0); }
+
+.btn-sena { background: var(--sena-green); color: white; }
+.btn-sena:hover { background: var(--sena-dark-green); }
+
+.btn-secondary { background: var(--sena-gray); color: white; }
+.btn-secondary:hover { background: #545b62; }
+
+.btn-light { background: white; color: var(--sena-green); border: 2px solid white; }
+.btn-light:hover { background: #eafaea; }
+
+.btn-edit { background: #007bff; color: white; }
+.btn-edit:hover { background: #0056b3; }
+
+.btn-delete { background: var(--sena-red); color: white; }
+.btn-delete:hover { background: #922b21; }
+
+/* ====== LAYOUT ====== */
+.panel-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 1.6rem auto 3rem;
+}
+
+.card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.6rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    margin-top: 1.2rem;
+    animation: fadeInUp 0.5s ease-out both;
+    transition: box-shadow 0.3s ease;
+}
+.card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== FORMULARIOS / FILTROS ====== */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.panel-container select,
+.panel-container input[type="text"],
+.panel-container input[type="number"],
+.panel-container input[type="date"],
+.panel-container input[type="time"],
+.panel-container input[type="file"],
+.panel-container input[type="email"] {
+    padding: 0.55rem 0.8rem;
+    border-radius: 10px;
+    border: 2px solid #e2e6ea;
+    font-size: 0.9rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    background: white;
+    color: var(--sena-dark-gray);
+}
+
+.panel-container select:focus,
+.panel-container input:focus {
+    outline: none;
+    border-color: var(--sena-green);
+    box-shadow: 0 0 0 3px var(--shadow-light);
+    transform: translateY(-1px);
+}
+
+/* ====== TABLAS ====== */
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    -webkit-overflow-scrolling: touch;
+}
+
+table.data-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 560px;
+    font-family: inherit;
+    text-align: center;
+    background: white;
+}
+
+table.data-table thead th {
+    background: linear-gradient(135deg, var(--sena-green), var(--sena-dark-green));
+    color: white;
+    padding: 0.75rem 0.6rem;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+table.data-table td {
+    padding: 0.6rem;
+    border-bottom: 1px solid #eef1f3;
+    transition: background 0.2s ease;
+}
+
+table.data-table tbody tr {
+    animation: rowFadeIn 0.4s ease-out both;
+}
+
+table.data-table tbody tr:nth-child(even) { background: #fafcf8; }
+
+table.data-table tbody tr:hover {
+    background: #eef8ea;
+}
+
+@keyframes rowFadeIn {
+    from { opacity: 0; transform: translateX(-6px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ====== BADGES (estados) ====== */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.badge-ok { background: rgba(57,169,0,0.15); color: var(--sena-dark-green); }
+.badge-warn { background: rgba(255,102,0,0.15); color: #b35400; }
+.badge-danger { background: rgba(192,57,43,0.15); color: var(--sena-red); }
+
+/* ====== AVISOS ====== */
+.aviso {
+    background: #fff3cd;
+    border: 1px solid #ffe08a;
+    padding: 0.9rem 1.1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.readonly-note {
+    text-align: center;
+    color: var(--sena-gray);
+    font-style: italic;
+    margin-top: 0.8rem;
+}
+
+/* ====== FOOTER ====== */
+.panel-footer {
+    text-align: center;
+    background: #e7ebee;
+    padding: 1.1rem;
+    margin-top: 3rem;
+    border-radius: 18px 18px 0 0;
+    font-size: 0.85rem;
+    color: var(--sena-gray);
+}
+
+/* ====== DIALOG / MODAL ====== */
+.panel-container dialog,
+dialog.panel-dialog {
+    border: none;
+    border-radius: 18px;
+    padding: 1.6rem;
+    max-width: 500px;
+    width: 92%;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+    animation: modalIn 0.3s ease-out;
+}
+dialog::backdrop { background: rgba(0,0,0,0.55); }
+
+@keyframes modalIn {
+    from { transform: translateY(-25px) scale(0.97); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ====== GRID DE CANDIDATOS (votación) ====== */
+.candidatos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 0 16px;
+}
+
+.candidato-card {
+    border: 1px solid #e5e9ec;
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+    width: 230px;
+    background: white;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+.candidato-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px var(--shadow-medium);
+}
+
+.candidato-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.candidato-card:hover img { transform: scale(1.05); }
+
+.candidato-card h3 {
+    margin: 12px 0 4px;
+    color: var(--sena-blue);
+}
+
+.btn-votar {
+    margin-top: 10px;
+    background: linear-gradient(135deg, var(--sena-green), var(--sena-light-green));
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px var(--shadow-medium);
+}
+.btn-votar:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 22px var(--shadow-medium);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+    .panel-header { flex-direction: column; text-align: center; border-radius: 0 0 16px 16px; }
+    .panel-header .header-left { flex-direction: column; }
+    .filter-bar { flex-direction: column; align-items: stretch; }
+    .filter-bar select, .filter-bar input, .filter-bar .btn { width: 100%; }
+    .panel-container { width: 95%; }
+    .candidato-card { width: 100%; max-width: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

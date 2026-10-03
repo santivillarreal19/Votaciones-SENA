@@ -1,0 +1,21 @@
+# Bloque mínimo equipo TI AYNN-OROEXPRESS
+.claude/settings.local.json
+CLAUDE.local.md
+.env
+
+# Datos personales: fotos de candidatos subidas desde el panel
+fotos/*
+!fotos/.gitkeep
+
+# Registros de errores del servidor
+error_log
+*.log
+
+# Herramienta de soporte con clave propia: se sube al servidor solo cuando hace falta y se borra
+verificar.php
+
+# Sistema operativo y editores
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/

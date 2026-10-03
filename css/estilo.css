@@ -1,0 +1,1881 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS para colores del SENA */
+:root {
+    --sena-green: #39A900;
+    --sena-dark-green: #2d8000;
+    --sena-light-green: #4bc20a;
+    --sena-white: #ffffff;
+    --sena-light-gray: #f8f9fa;
+    --sena-gray: #6c757d;
+    --sena-dark-gray: #495057;
+    --shadow-light: rgba(57, 169, 0, 0.1);
+    --shadow-medium: rgba(57, 169, 0, 0.2);
+}
+
+/* Estilos globales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--sena-light-gray) 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* Wrapper del login */
+.login-wrapper {
+    background: var(--sena-white);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px var(--shadow-light);
+    overflow: hidden;
+    border: 1px solid rgba(57, 169, 0, 0.1);
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    color: var(--sena-white);
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    padding: 40px 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Grupos de formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--sena-dark-gray);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.form-input {
+    padding: 16px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: var(--sena-white);
+    color: var(--sena-dark-gray);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--sena-green);
+    box-shadow: 0 0 0 3px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.form-input::placeholder {
+    color: var(--sena-gray);
+    opacity: 0.7;
+}
+
+/* Botón principal */
+.btn-primary {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    color: var(--sena-white);
+    border: none;
+    padding: 18px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    background: linear-gradient(135deg, var(--sena-dark-green) 0%, var(--sena-green) 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px var(--shadow-medium);
+}
+
+/* Enlaces del footer */
+.footer-links {
+    padding: 25px 30px;
+    text-align: center;
+    background: var(--sena-light-gray);
+    border-top: 1px solid rgba(57, 169, 0, 0.1);
+}
+
+.register-link {
+    color: var(--sena-green);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.register-link:hover {
+    color: var(--sena-dark-green);
+    background: rgba(57, 169, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .login-wrapper {
+        border-radius: 12px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-input {
+        padding: 14px 16px;
+    }
+    
+    .btn-primary {
+        padding: 16px 20px;
+    }
+    
+    .footer-links {
+        padding: 20px;
+    }
+}
+
+/* Animación de carga suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-wrapper {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estados de validación */
+.form-input:invalid {
+    border-color: #dc3545;
+}
+
+.form-input:valid {
+    border-color: var(--sena-green);
+}
+
+/* Mejoras de accesibilidad */
+.form-input:focus-visible {
+    outline: 2px solid var(--sena-green);
+    outline-offset: 2px;
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid var(--sena-white);
+    outline-offset: 2px;
+}
+
+
+
+
+/*VISTA DE REGISTRO JORNADA*/
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS para colores del SENA */
+:root {
+    --sena-green: #39A900;
+    --sena-dark-green: #2d8000;
+    --sena-light-green: #4bc20a;
+    --sena-white: #ffffff;
+    --sena-light-gray: #f8f9fa;
+    --sena-gray: #6c757d;
+    --sena-dark-gray: #495057;
+    --shadow-light: rgba(57, 169, 0, 0.1);
+    --shadow-medium: rgba(57, 169, 0, 0.2);
+    --accent-blue: #007bff;
+}
+
+/* Estilos globales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--sena-light-gray) 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Wrapper de la jornada */
+.jornada-wrapper {
+    background: var(--sena-white);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px var(--shadow-light);
+    overflow: hidden;
+    border: 1px solid rgba(57, 169, 0, 0.1);
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    color: var(--sena-white);
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    padding: 40px 30px;
+}
+
+/* Botón de volver */
+.back-button-container {
+    margin-bottom: 30px;
+}
+
+.btn-back {
+    background: none;
+    border: 2px solid var(--sena-green);
+    color: var(--sena-green);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-back:hover {
+    background: var(--sena-green);
+    color: var(--sena-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.back-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.btn-back:hover .back-icon {
+    transform: translateX(-3px);
+}
+
+/* Formulario */
+.jornada-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Grupos de formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--sena-dark-gray);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* Select personalizado */
+.select-wrapper {
+    position: relative;
+}
+
+.form-select {
+    width: 100%;
+    padding: 18px 50px 18px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 16px;
+    background: var(--sena-white);
+    color: var(--sena-dark-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--sena-green);
+    box-shadow: 0 0 0 3px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.form-select:invalid {
+    color: var(--sena-gray);
+}
+
+.form-select:valid {
+    color: var(--sena-dark-gray);
+    border-color: var(--sena-green);
+}
+
+/* Flecha del select */
+.select-arrow {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sena-green);
+    pointer-events: none;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.select-wrapper:hover .select-arrow {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Texto de ayuda */
+.form-help {
+    color: var(--sena-gray);
+    font-size: 14px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Botón principal */
+.btn-primary {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    color: var(--sena-white);
+    border: none;
+    padding: 20px 24px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    background: linear-gradient(135deg, var(--sena-dark-green) 0%, var(--sena-green) 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px var(--shadow-medium);
+}
+
+.btn-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover .btn-icon {
+    transform: translateX(3px);
+}
+
+/* Footer con información */
+.footer-info {
+    padding: 25px 30px;
+    text-align: center;
+    background: var(--sena-light-gray);
+    border-top: 1px solid rgba(57, 169, 0, 0.1);
+}
+
+.info-text {
+    color: var(--sena-gray);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.info-text strong {
+    color: var(--sena-dark-gray);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .jornada-wrapper {
+        border-radius: 12px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-select {
+        padding: 16px 45px 16px 18px;
+        font-size: 15px;
+    }
+    
+    .btn-primary {
+        padding: 18px 20px;
+        font-size: 16px;
+    }
+    
+    .footer-info {
+        padding: 20px;
+    }
+    
+    .btn-back {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.jornada-wrapper {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estados de validación para select */
+.form-select:required:invalid {
+    border-color: #dc3545;
+}
+
+.form-select:required:valid {
+    border-color: var(--sena-green);
+}
+
+/* Mejoras de accesibilidad */
+.form-select:focus-visible {
+    outline: 2px solid var(--sena-green);
+    outline-offset: 2px;
+}
+
+.btn-primary:focus-visible,
+.btn-back:focus-visible {
+    outline: 2px solid var(--sena-white);
+    outline-offset: 2px;
+}
+
+/* Estilo para opciones del select */
+.form-select option {
+    padding: 10px;
+    background: var(--sena-white);
+    color: var(--sena-dark-gray);
+}
+
+.form-select option:first-child {
+    color: var(--sena-gray);
+    font-style: italic;
+}
+
+
+/* DISEÑO DE LA VISTA DE REGISTRO*/
+
+/* ELEMENTOS INNOVADORES */
+
+/* Barra de progreso inteligente */
+.progress-container {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(57, 169, 0, 0.05) 0%, rgba(57, 169, 0, 0.1) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(57, 169, 0, 0.15);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(57, 169, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sena-green), var(--sena-light-green));
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: progressShine 2s infinite;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.4s ease;
+    opacity: 0.6;
+}
+
+.step.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.step.completed {
+    opacity: 1;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(57, 169, 0, 0.2);
+    border: 2px solid rgba(57, 169, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--sena-green);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.step.completed .step-circle {
+    background: var(--sena-green);
+    border-color: var(--sena-green);
+    color: white;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+}
+
+.step.completed .step-circle::after {
+    content: '✓';
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.step-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sena-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.step.active .step-label,
+.step.completed .step-label {
+    color: var(--sena-green);
+}
+
+/* Floating Labels innovadoras */
+.floating-label-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.floating-input {
+    width: 100%;
+    padding: 25px 20px 12px 50px;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    font-size: 16px;
+    background: var(--sena-white);
+    color: var(--sena-dark-gray);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.floating-input:focus {
+    outline: none;
+    border-color: var(--sena-green);
+    box-shadow: 0 0 0 4px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.floating-label {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    color: var(--sena-gray);
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--sena-white);
+    padding: 0 8px;
+}
+
+.floating-label-group.focused .floating-label,
+.floating-label-group.has-value .floating-label {
+    top: -8px;
+    left: 45px;
+    font-size: 12px;
+    color: var(--sena-green);
+    font-weight: 600;
+    transform: scale(0.9);
+}
+
+.label-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.floating-label-group.focused .label-icon {
+    transform: scale(1.1);
+}
+
+/* Validación visual avanzada */
+.input-validation {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.input-validation.show {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.input-validation.valid {
+    color: var(--sena-green);
+}
+
+.input-validation.invalid {
+    color: #dc3545;
+}
+
+.validation-icon {
+    font-size: 16px;
+}
+
+.input-validation.invalid .validation-icon::before {
+    content: '⚠';
+}
+
+/* Smart Select con búsqueda visual */
+.smart-select-group {
+    margin-bottom: 35px;
+}
+
+.smart-select-label {
+    font-weight: 600;
+    color: var(--sena-dark-gray);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.smart-select-wrapper {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+    border-radius: 16px;
+    border: 2px solid #e9ecef;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.smart-select-wrapper:hover {
+    border-color: var(--sena-green);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transform: translateY(-1px);
+}
+
+.smart-select {
+    width: 100%;
+    padding: 20px 60px 20px 25px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: var(--sena-dark-gray);
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    z-index: 2;
+}
+
+.smart-select:focus {
+    outline: none;
+}
+
+.smart-select:invalid {
+    color: var(--sena-gray);
+    font-style: italic;
+}
+
+.smart-select:valid {
+    color: var(--sena-dark-gray);
+    font-weight: 500;
+}
+
+.select-dropdown-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: var(--sena-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.dropdown-arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.smart-select-wrapper:hover .select-dropdown-icon {
+    background: var(--sena-light-green);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.smart-select-wrapper:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Form Help con iconos */
+.form-help {
+    color: var(--sena-gray);
+    font-size: 13px;
+    margin-top: 8px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 5px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.help-icon {
+    font-size: 14px;
+}
+
+.floating-label-group.focused .form-help {
+    opacity: 1;
+    color: var(--sena-green);
+}
+
+/* Resumen del formulario */
+.submit-section {
+    margin-top: 40px;
+}
+
+.form-summary {
+    background: linear-gradient(135deg, rgba(57, 169, 0, 0.05) 0%, rgba(57, 169, 0, 0.1) 100%);
+    border: 2px solid rgba(57, 169, 0, 0.2);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-summary.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.summary-title {
+    color: var(--sena-dark-green);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.summary-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(57, 169, 0, 0.1);
+    color: var(--sena-dark-gray);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-item strong {
+    color: var(--sena-dark-green);
+    font-weight: 600;
+}
+
+/* Botón de envío inteligente */
+.smart-submit {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ccc 0%, #999 100%);
+    cursor: not-allowed;
+    opacity: 0.6;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smart-submit.ready {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    cursor: pointer;
+    opacity: 1;
+    box-shadow: 0 8px 30px var(--shadow-strong);
+    animation: readyPulse 2s infinite;
+}
+
+.smart-submit.loading {
+    background: linear-gradient(135deg, var(--sena-dark-green) 0%, var(--sena-green) 100%);
+    pointer-events: none;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-loader {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.loader-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+}
+
+.smart-submit.loading .btn-loader {
+    opacity: 1;
+}
+
+.btn-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    overflow: hidden;
+}
+
+.btn-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: rgba(255,255,255,0.8);
+    transition: width 0.3s ease;
+}
+
+/* ANIMACIONES ADICIONALES */
+@keyframes progressShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes readyPulse {
+    0%, 100% { 
+        box-shadow: 0 8px 30px var(--shadow-strong);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 12px 40px var(--shadow-strong);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Estados de validación mejorados */
+.floating-input.valid {
+    border-color: var(--sena-green);
+    background: rgba(57, 169, 0, 0.02);
+    box-shadow: 0 0 0 3px var(--shadow-light);
+}
+
+.floating-input.invalid {
+    border-color: #dc3545;
+    background: rgba(220, 53, 69, 0.02);
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    animation: shake 0.5s ease-in-out;
+}
+
+.smart-select-wrapper .smart-select.valid {
+    border-color: var(--sena-green);
+}
+
+/* Responsive para elementos innovadores */
+@media (max-width: 480px) {
+    .progress-container {
+        padding: 20px 15px;
+    }
+    
+    .progress-steps {
+        gap: 10px;
+    }
+    
+    .step-circle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .step-label {
+        font-size: 10px;
+    }
+    
+    .floating-input {
+        padding: 20px 15px 10px 40px;
+        font-size: 15px;
+    }
+    
+    .floating-label {
+        left: 40px;
+        font-size: 15px;
+    }
+    
+    .floating-label-group.focused .floating-label,
+    .floating-label-group.has-value .floating-label {
+        left: 35px;
+        font-size: 11px;
+    }
+    
+    .label-icon {
+        font-size: 16px;
+    }
+    
+    .smart-select {
+        padding: 18px 50px 18px 20px;
+    }
+    
+    .form-summary {
+        padding: 20px 15px;
+    }
+    
+    .summary-title {
+        font-size: 14px;
+    }
+    
+    .summary-item {
+        font-size: 13px;
+        flex-direction: column;
+        gap: 2px;
+        align-items: flex-start;
+    }
+    
+    .smart-submit {
+        padding: 18px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Efectos adicionales para mejor UX */
+.floating-input:focus + .floating-label .label-icon {
+    animation: iconBounce 0.6s ease;
+}
+
+.step.completed .step-circle {
+    animation: stepComplete 0.6s ease;
+}
+
+.input-validation.show.valid {
+    animation: validationSuccess 0.5s ease;
+}
+
+.smart-select-wrapper:focus-within {
+    border-color: var(--sena-green);
+    box-shadow: 0 0 0 4px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes stepComplete {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes validationSuccess {
+    0% { transform: scale(0) rotate(180deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(0deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Mejoras de accesibilidad para elementos nuevos */
+.step-circle:focus-visible,
+.smart-submit:focus-visible {
+    outline: 3px solid var(--sena-white);
+    outline-offset: 2px;
+}
+
+.floating-input:focus-visible {
+    outline: 3px solid var(--sena-green);
+    outline-offset: 2px;
+}
+
+/* Animaciones de carga mejoradas */
+.registro-wrapper.loaded {
+    animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Efectos de hover mejorados */
+.form-group:hover .label-icon {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.smart-select-wrapper:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(57, 169, 0, 0.03) 0%, rgba(57, 169, 0, 0.06) 100%);
+    z-index: 1;
+}
+
+/* Estados de error mejorados */
+.floating-input.invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.15);
+}
+
+.input-validation.invalid .validation-text {
+    color: #dc3545;
+}
+
+.input-validation.invalid .validation-icon {
+    color: #dc3545;
+    animation: warningShake 0.5s ease-in-out;
+}
+
+@keyframes warningShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+/* Mejoras visuales finales */
+.registro-form {
+    position: relative;
+}
+
+.registro-form::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, transparent 0%, rgba(57, 169, 0, 0.02) 50%, transparent 100%);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.registro-form:hover::before {
+    opacity: 1;
+}/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS para colores del SENA */
+:root {
+    --sena-green: #39A900;
+    --sena-dark-green: #2d8000;
+    --sena-light-green: #4bc20a;
+    --sena-white: #ffffff;
+    --sena-light-gray: #f8f9fa;
+    --sena-gray: #6c757d;
+    --sena-dark-gray: #495057;
+    --shadow-light: rgba(57, 169, 0, 0.1);
+    --shadow-medium: rgba(57, 169, 0, 0.2);
+    --shadow-strong: rgba(57, 169, 0, 0.3);
+}
+
+/* Estilos globales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--sena-light-gray) 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* PANTALLA DE CARGA */
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.loader-content {
+    text-align: center;
+    color: var(--sena-white);
+}
+
+.logo-animation {
+    margin-bottom: 30px;
+}
+
+.logo-circle {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    animation: logoSpin 2s linear infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-circle::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+    border-radius: 50%;
+    animation: shimmer 1.5s linear infinite;
+}
+
+.logo-circle .logo-text {
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.loading-dots span {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: dotBounce 1.4s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+.loading-dots span:nth-child(3) { animation-delay: 0s; }
+
+.loading-text {
+    font-size: 24px;
+    font-weight: 600;
+    opacity: 0.9;
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-content {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* Wrapper del registro */
+.registro-wrapper {
+    background: var(--sena-white);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px var(--shadow-light);
+    overflow: hidden;
+    border: 1px solid rgba(57, 169, 0, 0.1);
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    color: var(--sena-white);
+    padding: 45px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: headerGlow 3s ease-in-out infinite;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-placeholder {
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.logo-placeholder:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.logo-placeholder .logo-text {
+    font-weight: bold;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    padding: 45px 35px;
+}
+
+/* Botón de volver */
+.back-button-container {
+    margin-bottom: 35px;
+}
+
+.btn-back {
+    background: none;
+    border: 2px solid var(--sena-green);
+    color: var(--sena-green);
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-back:hover {
+    background: var(--sena-green);
+    color: var(--sena-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.back-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.btn-back:hover .back-icon {
+    transform: translateX(-3px);
+}
+
+/* Formulario */
+.registro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Grupos de formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--sena-dark-gray);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.form-label::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--sena-green);
+    font-size: 20px;
+}
+
+/* Inputs */
+.form-input {
+    padding: 20px 25px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: var(--sena-white);
+    color: var(--sena-dark-gray);
+    position: relative;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--sena-green);
+    box-shadow: 0 0 0 4px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.form-input:valid {
+    border-color: var(--sena-green);
+}
+
+.form-input::placeholder {
+    color: var(--sena-gray);
+    opacity: 0.7;
+}
+
+/* Select personalizado */
+.select-wrapper {
+    position: relative;
+}
+
+.form-select {
+    width: 100%;
+    padding: 20px 50px 20px 25px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 16px;
+    background: var(--sena-white);
+    color: var(--sena-dark-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--sena-green);
+    box-shadow: 0 0 0 4px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.form-select:invalid {
+    color: var(--sena-gray);
+}
+
+.form-select:valid {
+    color: var(--sena-dark-gray);
+    border-color: var(--sena-green);
+}
+
+/* Flecha del select */
+.select-arrow {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sena-green);
+    pointer-events: none;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.select-wrapper:hover .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Texto de ayuda */
+.form-help {
+    color: var(--sena-gray);
+    font-size: 13px;
+    margin-top: 5px;
+    font-style: italic;
+    padding-left: 5px;
+}
+
+/* Botón principal */
+.btn-primary {
+    background: linear-gradient(135deg, var(--sena-green) 0%, var(--sena-light-green) 100%);
+    color: var(--sena-white);
+    border: none;
+    padding: 22px 30px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 25px;
+    box-shadow: 0 6px 20px var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px var(--shadow-strong);
+    background: linear-gradient(135deg, var(--sena-dark-green) 0%, var(--sena-green) 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px var(--shadow-medium);
+}
+
+.btn-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover .btn-icon {
+    transform: scale(1.2);
+}
+
+/* Footer con información */
+.footer-info {
+    padding: 30px 35px;
+    background: var(--sena-light-gray);
+    border-top: 1px solid rgba(57, 169, 0, 0.1);
+}
+
+.security-info {
+    text-align: center;
+}
+
+.security-text {
+    color: var(--sena-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.security-icon {
+    font-size: 18px;
+}
+
+.security-text strong {
+    color: var(--sena-dark-gray);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ANIMACIONES */
+@keyframes logoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes dotBounce {
+    0%, 80%, 100% { 
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+@keyframes headerGlow {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .registro-wrapper {
+        border-radius: 16px;
+    }
+    
+    .header {
+        padding: 35px 25px;
+    }
+    
+    .title {
+        font-size: 26px;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+    }
+    
+    .form-container {
+        padding: 35px 25px;
+    }
+    
+    .form-input,
+    .form-select {
+        padding: 18px 20px;
+        font-size: 15px;
+    }
+    
+    .form-select {
+        padding-right: 45px;
+    }
+    
+    .btn-primary {
+        padding: 20px 25px;
+        font-size: 16px;
+    }
+    
+    .footer-info {
+        padding: 25px 20px;
+    }
+    
+    .security-text {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+.form-input:focus-visible,
+.form-select:focus-visible {
+    outline: 3px solid var(--sena-green);
+    outline-offset: 2px;
+}
+
+.btn-primary:focus-visible,
+.btn-back:focus-visible {
+    outline: 3px solid var(--sena-white);
+    outline-offset: 2px;
+}
+
+/* Estados de validación */
+.form-input:invalid:not(:placeholder-shown),
+.form-select:invalid {
+    border-color: #dc3545;
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+    
